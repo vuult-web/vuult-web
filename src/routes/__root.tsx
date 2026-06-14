@@ -162,14 +162,14 @@ function SiteFooter() {
           <div className="md:col-span-3">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Studio</p>
             <ul className="mt-4 space-y-2 text-sm">
-              <li><Link to="/services" className="hover:text-signal">Services</Link></li>
               <li><Link to="/about" className="hover:text-signal">About</Link></li>
+              <li><Link to="/services" className="hover:text-signal">Services</Link></li>
               <li><Link to="/contact" className="hover:text-signal">Contact</Link></li>
             </ul>
           </div>
           <div className="md:col-span-4">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Get in touch</p>
-            <a href="mailto:hello@vuult.com" className="mt-4 block font-display text-2xl hover:text-signal">hello@vuult.com</a>
+            <a href="mailto:hello@vuultweb.com" className="mt-4 block font-display text-2xl hover:text-signal">hello@vuultweb.com</a>
           </div>
         </div>
         <div className="mt-16 flex flex-col justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row">
