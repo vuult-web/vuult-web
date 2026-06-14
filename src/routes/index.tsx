@@ -179,7 +179,7 @@ function Index() {
       {/* CTA */}
       <section className="relative overflow-hidden bg-bone text-ink">
         <div className="mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] opacity-60">§ 03 — Next move</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] opacity-60">§ 04 — Next move</p>
           <h2 className="font-display mt-6 text-balance text-6xl leading-[0.9] lg:text-8xl">
             Got a business?<br />Let’s give it a website<br />it deserves.
           </h2>
