@@ -16,14 +16,14 @@ const detailed = [
   {
     no: "01",
     title: "Custom websites",
-    from: "from £950",
+    from: "from £149",
     body: "Bespoke marketing sites and brochure sites, hand-coded for speed and SEO. Designed around your brand — no theme that 4,000 other businesses already use.",
     bullets: ["Bespoke design", "Lightning-fast load times", "SEO foundations", "CMS if you need it"],
   },
   {
     no: "02",
     title: "Shopify stores",
-    from: "from £1,400",
+    from: "from £149",
     body: "Custom Shopify themes and full storefront builds. Product pages that sell, checkouts that convert, and a backend you can actually run yourself.",
     bullets: ["Custom theme dev", "Product & collection design", "App integrations", "Migration from other platforms"],
   },
@@ -38,8 +38,8 @@ const detailed = [
     no: "04",
     title: "Email hosting",
     from: "from £4/mailbox/mo",
-    body: "Professional inboxes on your own domain. Works with Gmail, Outlook, Apple Mail — anywhere. Calendars, contacts and shared aliases included.",
-    bullets: ["you@yourbusiness.com", "Calendar & contacts", "Shared aliases", "Spam & virus filtering"],
+    body: "Professional inboxes on your own domain. Works with Gmail, Outlook, Apple Mail — anywhere. One mailbox included free with any care & maintenance package.",
+    bullets: ["you@yourbusiness.com", "Calendar & contacts", "Shared aliases", "1 mailbox free with care plans"],
   },
   {
     no: "05",
@@ -51,9 +51,9 @@ const detailed = [
   {
     no: "06",
     title: "Care & maintenance",
-    from: "from £45/mo",
-    body: "Small monthly retainer for content edits, plugin updates, performance checks and the occasional ‘can you just…’.",
-    bullets: ["Monthly edits", "Security updates", "Performance reports", "Priority response"],
+    from: "from £39/mo",
+    body: "Small monthly retainer for content edits, plugin updates, performance checks and the occasional ‘can you just…’. Includes one free mailbox on your domain.",
+    bullets: ["Monthly edits", "Security updates", "Performance reports", "1 free mailbox included"],
   },
 ];
 
