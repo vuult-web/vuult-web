@@ -14,7 +14,7 @@ export const Route = createFileRoute("/about")({
 
 const stats = [
   { k: "100%", v: "Custom builds. Zero templates." },
-  { k: "2–4 wk", v: "Typical website turnaround." },
+  { k: "7 days", v: "Typical website turnaround." },
   { k: "1", v: "Person you actually talk to." },
 ];
 
