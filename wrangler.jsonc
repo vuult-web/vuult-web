@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vuult-web",
+  "main": "@tanstack/react-start/server-entry",
+  "compatibility_date": "2026-06-14",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
