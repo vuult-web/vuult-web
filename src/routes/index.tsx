@@ -153,8 +153,8 @@ function Index() {
             >
               Tell us about it →
             </Link>
-            <a href="mailto:hello@vuult.com" className="font-mono text-xs uppercase tracking-[0.2em] underline-offset-4 hover:underline">
-              or hello@vuult.com
+            <a href="mailto:hello@vuultweb.com" className="font-mono text-xs uppercase tracking-[0.2em] underline-offset-4 hover:underline">
+              or hello@vuultweb.com
             </a>
           </div>
         </div>
