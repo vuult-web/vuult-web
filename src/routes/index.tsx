@@ -23,7 +23,7 @@ const services = [
 
 const principles = [
   { k: "Fair", v: "Transparent quotes. No surprise invoices. Ever." },
-  { k: "Fast", v: "Most sites ship in 2–4 weeks, not 2–4 months." },
+  { k: "Fast", v: "Most projects ship within 7 days, not 7 months." },
   { k: "Owned", v: "You own the code, the content, and the domain. Always." },
   { k: "Human", v: "You talk to the person building it. No account-manager telephone game." },
 ];
