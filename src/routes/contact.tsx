@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
-import { submitLead } from "@/lib/leads.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -18,33 +16,35 @@ export const Route = createFileRoute("/contact")({
 const services = ["Custom website", "Shopify store", "Hosting & domains", "Email hosting", "iOS app", "Something else"];
 const budgets = ["Under £1k", "£1k – £3k", "£3k – £7k", "£7k+", "Not sure yet"];
 
-function ContactPage() {
-  const send = useServerFn(submitLead);
-  const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
-  const [error, setError] = useState<string | null>(null);
+const CONTACT_EMAIL = "hello@vuultweb.com";
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+function ContactPage() {
+  const [sent, setSent] = useState(false);
+
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setState("sending");
-    setError(null);
     const fd = new FormData(e.currentTarget);
-    try {
-      await send({
-        data: {
-          name: String(fd.get("name") || ""),
-          email: String(fd.get("email") || ""),
-          business: String(fd.get("business") || ""),
-          service: String(fd.get("service") || ""),
-          budget: String(fd.get("budget") || ""),
-          message: String(fd.get("message") || ""),
-        },
-      });
-      setState("sent");
-      (e.target as HTMLFormElement).reset();
-    } catch (err) {
-      setState("error");
-      setError(err instanceof Error ? err.message : "Something went wrong.");
-    }
+    const name = String(fd.get("name") || "");
+    const email = String(fd.get("email") || "");
+    const business = String(fd.get("business") || "");
+    const service = String(fd.get("service") || "");
+    const budget = String(fd.get("budget") || "");
+    const message = String(fd.get("message") || "");
+
+    const subject = `New project enquiry — ${name}${business ? ` (${business})` : ""}`;
+    const bodyLines = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Business: ${business}`,
+      `Service: ${service}`,
+      `Budget: ${budget}`,
+      "",
+      "Project details:",
+      message,
+    ];
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailto;
+    setSent(true);
   }
 
   return (
@@ -60,24 +60,31 @@ function ContactPage() {
               The more you can share — what your business does, what you’re hoping for, when you need it — the better the first reply we can write you. We typically respond within one working day.
             </p>
             <div className="mt-10 space-y-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              <p><span className="text-foreground">Email</span> &nbsp; hello@vuultweb.com</p>
+              <p>
+                <span className="text-foreground">Email</span> &nbsp;
+                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-signal">{CONTACT_EMAIL}</a>
+              </p>
               <p><span className="text-foreground">Hours</span> &nbsp; Mon – Fri, 9–6 GMT</p>
             </div>
           </div>
 
           <div className="lg:col-span-7">
-            {state === "sent" ? (
+            {sent ? (
               <div className="border border-border bg-card p-10">
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-signal">Message received</p>
-                <h2 className="font-display mt-4 text-4xl">Thanks — we’ll be in touch.</h2>
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-signal">Email opened</p>
+                <h2 className="font-display mt-4 text-4xl">Almost there — hit send.</h2>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Your message is in. Expect a reply within one working day at the email you provided.
+                  Your email client should have opened with your message pre-filled to {CONTACT_EMAIL}. Just press send and we’ll reply within one working day.
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  Nothing happened? Email us directly at{" "}
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-signal underline-offset-4 hover:underline">{CONTACT_EMAIL}</a>.
                 </p>
                 <button
-                  onClick={() => setState("idle")}
+                  onClick={() => setSent(false)}
                   className="mt-8 inline-flex border border-border px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] hover:bg-secondary"
                 >
-                  Send another →
+                  Start over →
                 </button>
               </div>
             ) : (
@@ -104,16 +111,15 @@ function ContactPage() {
                 </div>
 
                 <div className="bg-background p-6">
-                  {error ? (
-                    <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-destructive">{error}</p>
-                  ) : null}
                   <button
                     type="submit"
-                    disabled={state === "sending"}
-                    className="inline-flex w-full items-center justify-center bg-signal px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+                    className="inline-flex w-full items-center justify-center bg-signal px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground transition-transform hover:-translate-y-0.5"
                   >
-                    {state === "sending" ? "Sending…" : "Send message →"}
+                    Send message →
                   </button>
+                  <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Opens in your email app
+                  </p>
                 </div>
               </form>
             )}
