@@ -60,7 +60,7 @@ function ContactPage() {
               The more you can share — what your business does, what you’re hoping for, when you need it — the better the first reply we can write you. We typically respond within one working day.
             </p>
             <div className="mt-10 space-y-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              <p><span className="text-foreground">Email</span> &nbsp; hello@vuult.com</p>
+              <p><span className="text-foreground">Email</span> &nbsp; hello@vuultweb.com</p>
               <p><span className="text-foreground">Hours</span> &nbsp; Mon – Fri, 9–6 GMT</p>
             </div>
           </div>
