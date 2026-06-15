@@ -78,14 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Vuult Web" },
-      { name: "description", content: "Vuult builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
-      { name: "author", content: "Vuult" },
+      { name: "description", content: "Vuult Web builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
+      { name: "author", content: "Vuult Web" },
       { property: "og:title", content: "Vuult Web" },
-      { property: "og:description", content: "Vuult builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
+      { property: "og:description", content: "Vuult Web builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Vuult Web" },
-      { name: "twitter:description", content: "Vuult builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
+      { name: "twitter:description", content: "Vuult Web builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1aa0f8bc-7182-4496-bca6-ab90206eac0f/id-preview-4861c26c--3596010c-b799-4b33-8401-da0e903eada0.lovable.app-1781465481800.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1aa0f8bc-7182-4496-bca6-ab90206eac0f/id-preview-4861c26c--3596010c-b799-4b33-8401-da0e903eada0.lovable.app-1781465481800.png" },
     ],
@@ -130,8 +130,8 @@ function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
-        <Link to="/" className="flex items-center gap-3" aria-label="Vuult home" onClick={() => setOpen(false)}>
-          <img src={LOGO_URL} alt="Vuult" className="h-5 w-auto" />
+        <Link to="/" className="flex items-center gap-3" aria-label="Vuult Web home" onClick={() => setOpen(false)}>
+          <img src={LOGO_URL} alt="Vuult Web" className="h-5 w-auto" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
@@ -197,7 +197,7 @@ function SiteFooter() {
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <img src={LOGO_URL} alt="Vuult" className="h-6 w-auto" />
+            <img src={LOGO_URL} alt="Vuult Web" className="h-6 w-auto" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               We build custom websites, Shopify stores and iOS apps for small businesses — without the agency markup.
             </p>
@@ -216,7 +216,7 @@ function SiteFooter() {
           </div>
         </div>
         <div className="mt-16 flex flex-col justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row">
-          <p>© {new Date().getFullYear()} Vuult. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Vuult Web. All rights reserved.</p>
           <p className="font-mono uppercase tracking-[0.2em]">Designed & built in-house.</p>
         </div>
       </div>

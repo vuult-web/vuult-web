@@ -3,9 +3,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vuult — Custom websites & apps for small business" },
-      { name: "description", content: "Bespoke web design, Shopify, hosting, email, and iOS apps — at honest prices. Vuult is the small-business studio." },
-      { property: "og:title", content: "Vuult — Custom websites & apps for small business" },
+      { title: "Vuult Web — Custom websites & apps for small business" },
+      { name: "description", content: "Bespoke web design, Shopify, hosting, email, and iOS apps — at honest prices. Vuult Web is the small-business studio." },
+      { property: "og:title", content: "Vuult Web — Custom websites & apps for small business" },
       { property: "og:description", content: "Bespoke web design, Shopify, hosting, email, and iOS apps — at honest prices." },
     ],
   }),
@@ -50,7 +50,7 @@ function Index() {
 
           <div className="mt-12 grid gap-10 md:grid-cols-12">
             <p className="md:col-span-6 md:col-start-1 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Vuult is a tiny studio designing custom websites, Shopify stores and iOS apps for independent businesses. No templates, no agency markup — just a website that actually looks like you.
+              Vuult Web is a tiny studio designing custom websites, Shopify stores and iOS apps for independent businesses. No templates, no agency markup — just a website that actually looks like you.
             </p>
             <div className="md:col-span-5 md:col-start-8 flex flex-wrap items-end gap-4">
               <Link

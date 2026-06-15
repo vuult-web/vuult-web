@@ -3,9 +3,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Vuult" },
-      { name: "description", content: "Vuult is a small, independent studio building custom websites and apps for small businesses — without the agency markup." },
-      { property: "og:title", content: "About — Vuult" },
+      { title: "About — Vuult Web" },
+      { name: "description", content: "Vuult Web is a small, independent studio building custom websites and apps for small businesses — without the agency markup." },
+      { property: "og:title", content: "About — Vuult Web" },
       { property: "og:description", content: "An independent studio for small business. Custom work, fair prices." },
     ],
   }),
