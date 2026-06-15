@@ -123,10 +123,11 @@ const nav = [
 ] as const;
 
 function SiteHeader() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
-        <Link to="/" className="flex items-center gap-3" aria-label="Vuult home">
+        <Link to="/" className="flex items-center gap-3" aria-label="Vuult home" onClick={() => setOpen(false)}>
           <img src={logoAsset.url} alt="Vuult" className="h-5 w-auto" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
@@ -148,7 +149,41 @@ function SiteHeader() {
         >
           Start a project →
         </Link>
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="inline-flex items-center justify-center p-2 text-foreground md:hidden"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
+      {open && (
+        <div className="border-t border-border bg-background md:hidden">
+          <nav className="mx-auto flex max-w-[1400px] flex-col gap-1 px-6 py-4">
+            {nav.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                onClick={() => setOpen(false)}
+                className="py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+                activeProps={{ className: "py-3 font-mono text-xs uppercase tracking-[0.2em] text-foreground" }}
+                activeOptions={{ exact: true }}
+              >
+                {n.label}
+              </Link>
+            ))}
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              className="mt-2 inline-flex items-center justify-center bg-signal px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground"
+            >
+              Start a project →
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
