@@ -124,7 +124,7 @@ function Index() {
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">§ 02 — How we work</p>
               <h2 className="font-display mt-4 text-5xl lg:text-6xl">Four rules.<br />No exceptions.</h2>
               <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
-                We started Vuult because small businesses were being quoted £15k for a brochure site. That’s daft. We do the same quality work for a fraction of the cost, and we tell you the price before we start.
+                We started Vuult Web because small businesses were being quoted £15k for a brochure site. That’s daft. We do the same quality work for a fraction of the cost, and we tell you the price before we start.
               </p>
             </div>
             <ul className="md:col-span-7 md:col-start-6 grid gap-px bg-border sm:grid-cols-2">
