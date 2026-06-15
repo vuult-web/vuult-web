@@ -11,7 +11,8 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 
 import appCss from "../styles.css?url";
-import logoAsset from "@/assets/vuult-logo-white.png.asset.json";
+
+const LOGO_URL = "/vuult-logo-white.png";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -76,20 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vuult — Custom websites & apps for small business" },
+      { title: "Vuult Web" },
       { name: "description", content: "Vuult builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
       { name: "author", content: "Vuult" },
-      { property: "og:title", content: "Vuult — Custom websites & apps for small business" },
+      { property: "og:title", content: "Vuult Web" },
       { property: "og:description", content: "Vuult builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Vuult — Custom websites & apps for small business" },
+      { name: "twitter:title", content: "Vuult Web" },
       { name: "twitter:description", content: "Vuult builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1aa0f8bc-7182-4496-bca6-ab90206eac0f/id-preview-4861c26c--3596010c-b799-4b33-8401-da0e903eada0.lovable.app-1781465481800.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1aa0f8bc-7182-4496-bca6-ab90206eac0f/id-preview-4861c26c--3596010c-b799-4b33-8401-da0e903eada0.lovable.app-1781465481800.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" },
@@ -128,7 +131,7 @@ function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/" className="flex items-center gap-3" aria-label="Vuult home" onClick={() => setOpen(false)}>
-          <img src={logoAsset.url} alt="Vuult" className="h-5 w-auto" />
+          <img src={LOGO_URL} alt="Vuult" className="h-5 w-auto" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
@@ -194,7 +197,7 @@ function SiteFooter() {
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <img src={logoAsset.url} alt="Vuult" className="h-6 w-auto" />
+            <img src={LOGO_URL} alt="Vuult" className="h-6 w-auto" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               We build custom websites, Shopify stores and iOS apps for small businesses — without the agency markup.
             </p>
