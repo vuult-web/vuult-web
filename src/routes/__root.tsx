@@ -131,7 +131,7 @@ function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/" className="flex items-center gap-3" aria-label="Vuult home" onClick={() => setOpen(false)}>
-          <img src={logoAsset.url} alt="Vuult" className="h-5 w-auto" />
+          <img src={LOGO_URL} alt="Vuult" className="h-5 w-auto" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
@@ -197,7 +197,7 @@ function SiteFooter() {
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <img src={logoAsset.url} alt="Vuult" className="h-6 w-auto" />
+            <img src={LOGO_URL} alt="Vuult" className="h-6 w-auto" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
               We build custom websites, Shopify stores and iOS apps for small businesses — without the agency markup.
             </p>
