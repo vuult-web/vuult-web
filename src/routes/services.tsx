@@ -3,10 +3,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Vuult" },
-      { name: "description", content: "Custom websites, Shopify, hosting, custom-domain email and iOS apps. Transparent pricing from Vuult." },
-      { property: "og:title", content: "Services — Vuult" },
-      { property: "og:description", content: "Custom websites, Shopify, hosting, custom-domain email and iOS apps. Transparent pricing from Vuult." },
+      { title: "Services — Vuult Web" },
+      { name: "description", content: "Custom websites, Shopify, hosting, custom-domain email and iOS apps. Transparent pricing from Vuult Web." },
+      { property: "og:title", content: "Services — Vuult Web" },
+      { property: "og:description", content: "Custom websites, Shopify, hosting, custom-domain email and iOS apps. Transparent pricing from Vuult Web." },
     ],
   }),
   component: ServicesPage,

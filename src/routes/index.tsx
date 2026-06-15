@@ -3,9 +3,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vuult — Custom websites & apps for small business" },
-      { name: "description", content: "Bespoke web design, Shopify, hosting, email, and iOS apps — at honest prices. Vuult is the small-business studio." },
-      { property: "og:title", content: "Vuult — Custom websites & apps for small business" },
+      { title: "Vuult Web — Custom websites & apps for small business" },
+      { name: "description", content: "Bespoke web design, Shopify, hosting, email, and iOS apps — at honest prices. Vuult Web is the small-business studio." },
+      { property: "og:title", content: "Vuult Web — Custom websites & apps for small business" },
       { property: "og:description", content: "Bespoke web design, Shopify, hosting, email, and iOS apps — at honest prices." },
     ],
   }),
@@ -50,7 +50,7 @@ function Index() {
 
           <div className="mt-12 grid gap-10 md:grid-cols-12">
             <p className="md:col-span-6 md:col-start-1 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Vuult is a tiny studio designing custom websites, Shopify stores and iOS apps for independent businesses. No templates, no agency markup — just a website that actually looks like you.
+              Vuult Web is a tiny studio designing custom websites, Shopify stores and iOS apps for independent businesses. No templates, no agency markup — just a website that actually looks like you.
             </p>
             <div className="md:col-span-5 md:col-start-8 flex flex-wrap items-end gap-4">
               <Link
@@ -124,7 +124,7 @@ function Index() {
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">§ 02 — How we work</p>
               <h2 className="font-display mt-4 text-5xl lg:text-6xl">Four rules.<br />No exceptions.</h2>
               <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
-                We started Vuult because small businesses were being quoted £15k for a brochure site. That’s daft. We do the same quality work for a fraction of the cost, and we tell you the price before we start.
+                We started Vuult Web because small businesses were being quoted £15k for a brochure site. That’s daft. We do the same quality work for a fraction of the cost, and we tell you the price before we start.
               </p>
             </div>
             <ul className="md:col-span-7 md:col-start-6 grid gap-px bg-border sm:grid-cols-2">
