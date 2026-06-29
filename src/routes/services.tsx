@@ -4,9 +4,9 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Vuult Web" },
-      { name: "description", content: "Custom websites, Shopify, hosting, custom-domain email and iOS apps. Transparent pricing from Vuult Web." },
+      { name: "description", content: "Custom websites, Shopify, hosting, custom-domain email and iOS & Android apps. Transparent pricing from Vuult Web." },
       { property: "og:title", content: "Services — Vuult Web" },
-      { property: "og:description", content: "Custom websites, Shopify, hosting, custom-domain email and iOS apps. Transparent pricing from Vuult Web." },
+      { property: "og:description", content: "Custom websites, Shopify, hosting, custom-domain email and iOS & Android apps. Transparent pricing from Vuult Web." },
     ],
   }),
   component: ServicesPage,
@@ -43,10 +43,10 @@ const detailed = [
   },
   {
     no: "05",
-    title: "iOS apps",
+    title: "iOS & Android apps",
     from: "Quoted per project",
-    body: "Native-feel apps designed and built for iPhone and iPad. We design, develop, submit and maintain — your app, your App Store listing.",
-    bullets: ["UI/UX design", "Native iOS build", "App Store submission", "Push notifications & analytics"],
+    body: "Native-feel apps designed and built for iPhone, iPad and Android. We design, develop, submit and maintain — your app, your App Store and Google Play listings.",
+    bullets: ["UI/UX design", "Native iOS & Android build", "App Store & Google Play submission", "Push notifications & analytics"],
   },
   {
     no: "06",

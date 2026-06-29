@@ -5,7 +5,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Vuult Web" },
-      { name: "description", content: "Tell us about your project. Custom websites, Shopify, hosting, email and iOS apps from Vuult Web." },
+      { name: "description", content: "Tell us about your project. Custom websites, Shopify, hosting, email and iOS & Android apps from Vuult Web." },
       { property: "og:title", content: "Contact — Vuult Web" },
       { property: "og:description", content: "Tell us about your project. We reply within 1 business day." },
     ],
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const services = ["Custom website", "Shopify store", "Hosting & domains", "Email hosting", "iOS app", "Something else"];
+const services = ["Custom website", "Shopify store", "Hosting & domains", "Email hosting", "iOS app", "Android app", "Something else"];
 const budgets = ["Under £1k", "£1k – £3k", "£3k – £7k", "£7k+", "Not sure yet"];
 
 const CONTACT_EMAIL = "hello@vuultweb.com";

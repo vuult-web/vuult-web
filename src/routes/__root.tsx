@@ -78,14 +78,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Vuult Web" },
-      { name: "description", content: "Vuult Web builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
-      { name: "author", content: "Vuult Web" },
-      { property: "og:title", content: "Vuult Web" },
-      { property: "og:description", content: "Vuult Web builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
+      { name: "description", content: "Vuult Web builds bespoke websites, Shopify stores, hosting, email and iOS & Android apps for small businesses — at honest, competitive prices." },
+      { property: "og:title", content: "Vuult Web — Custom websites & apps for small businesses" },
+      { property: "og:description", content: "Vuult Web builds bespoke websites, Shopify stores, hosting, email and iOS & Android apps for small businesses — at honest, competitive prices." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Vuult Web" },
-      { name: "twitter:description", content: "Vuult Web builds bespoke websites, Shopify stores, hosting, email and iOS apps for small businesses — at honest, competitive prices." },
+      { name: "twitter:title", content: "Vuult Web — Custom websites & apps" },
+      { name: "twitter:description", content: "Vuult Web builds bespoke websites, Shopify stores, hosting, email and iOS & Android apps for small businesses — at honest, competitive prices." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1aa0f8bc-7182-4496-bca6-ab90206eac0f/id-preview-4861c26c--3596010c-b799-4b33-8401-da0e903eada0.lovable.app-1781465481800.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1aa0f8bc-7182-4496-bca6-ab90206eac0f/id-preview-4861c26c--3596010c-b799-4b33-8401-da0e903eada0.lovable.app-1781465481800.png" },
     ],
@@ -199,7 +198,7 @@ function SiteFooter() {
           <div className="md:col-span-5">
             <img src={LOGO_URL} alt="Vuult Web" className="h-6 w-auto" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              We build custom websites, Shopify stores and iOS apps for small businesses — without the agency markup.
+              We build custom websites, Shopify stores and iOS & Android apps for small businesses — without the agency markup.
             </p>
           </div>
           <div className="md:col-span-3">
