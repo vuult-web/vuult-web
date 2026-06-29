@@ -139,43 +139,6 @@ function Index() {
         </div>
       </section>
 
-      {/* TRY BEFORE YOU BUY */}
-      <section className="border-b border-border bg-card">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
-          <div className="grid gap-12 md:grid-cols-12">
-            <div className="md:col-span-7">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-signal">§ 03 — Try before you buy</p>
-              <h2 className="font-display mt-4 text-balance text-5xl leading-[0.95] lg:text-7xl">
-                £25. We design it.<br />Don’t like it? <span className="text-muted-foreground">Walk away.</span>
-              </h2>
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-                For a flat £25 we’ll design and stand up a working draft of your website — placeholder copy, real layout, real navigation, the lot. If it’s not what you wanted, you owe us nothing more. If it is, we finish it.
-              </p>
-              <div className="mt-10">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center bg-signal px-6 py-4 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground transition-transform hover:-translate-y-0.5"
-                >
-                  Start your £25 draft →
-                </Link>
-              </div>
-            </div>
-            <ul className="md:col-span-5 grid gap-px self-end bg-border">
-              {[
-                { k: "£25", v: "Flat fee, paid up front." },
-                { k: "Working draft", v: "Real, navigable site — not a static mockup." },
-                { k: "No obligation", v: "Walk away at any point. No hidden fees." },
-              ].map((i) => (
-                <li key={i.k} className="bg-background p-8">
-                  <p className="font-display text-3xl text-signal">{i.k}</p>
-                  <p className="mt-2 text-sm text-muted-foreground">{i.v}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="relative overflow-hidden bg-bone text-ink">
         <div className="mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
