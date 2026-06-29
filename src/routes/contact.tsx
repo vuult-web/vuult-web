@@ -17,35 +17,38 @@ const services = ["Custom website", "Shopify store", "Hosting & domains", "Email
 const budgets = ["Under £1k", "£1k – £3k", "£3k – £7k", "£7k+", "Not sure yet"];
 
 const CONTACT_EMAIL = "hello@vuultweb.com";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqevljlb";
 
 function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const name = String(fd.get("name") || "");
-    const email = String(fd.get("email") || "");
-    const business = String(fd.get("business") || "");
-    const service = String(fd.get("service") || "");
-    const budget = String(fd.get("budget") || "");
-    const message = String(fd.get("message") || "");
-
-    const subject = `New project enquiry — ${name}${business ? ` (${business})` : ""}`;
-    const bodyLines = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Business: ${business}`,
-      `Service: ${service}`,
-      `Budget: ${budget}`,
-      "",
-      "Project details:",
-      message,
-    ];
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    window.location.href = mailto;
-    setSent(true);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    setStatus("sending");
+    setErrorMsg("");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: fd,
+      });
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => null);
+        setErrorMsg(data?.errors?.[0]?.message || "Something went wrong. Please try again.");
+        setStatus("error");
+      }
+    } catch {
+      setErrorMsg("Network error. Please try again or email us directly.");
+      setStatus("error");
+    }
   }
+
 
   return (
     <div>
@@ -69,22 +72,18 @@ function ContactPage() {
           </div>
 
           <div className="lg:col-span-7">
-            {sent ? (
+            {status === "sent" ? (
               <div className="border border-border bg-card p-10">
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-signal">Email opened</p>
-                <h2 className="font-display mt-4 text-4xl">Almost there — hit send.</h2>
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-signal">Message sent</p>
+                <h2 className="font-display mt-4 text-4xl">Thanks — we’ll be in touch.</h2>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Your email client should have opened with your message pre-filled to {CONTACT_EMAIL}. Just press send and we’ll reply within one working day.
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Nothing happened? Email us directly at{" "}
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-signal underline-offset-4 hover:underline">{CONTACT_EMAIL}</a>.
+                  Your message is on its way to {CONTACT_EMAIL}. We typically reply within one working day.
                 </p>
                 <button
-                  onClick={() => setSent(false)}
+                  onClick={() => setStatus("idle")}
                   className="mt-8 inline-flex border border-border px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] hover:bg-secondary"
                 >
-                  Start over →
+                  Send another →
                 </button>
               </div>
             ) : (
@@ -113,16 +112,23 @@ function ContactPage() {
                 <div className="bg-background p-6">
                   <button
                     type="submit"
-                    className="inline-flex w-full items-center justify-center bg-signal px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground transition-transform hover:-translate-y-0.5"
+                    disabled={status === "sending"}
+                    className="inline-flex w-full items-center justify-center bg-signal px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    Send message →
+                    {status === "sending" ? "Sending…" : "Send message →"}
                   </button>
+                  {status === "error" && (
+                    <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-destructive">
+                      {errorMsg}
+                    </p>
+                  )}
                   <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                    Opens in your email app
+                    We reply within one working day
                   </p>
                 </div>
               </form>
             )}
+
           </div>
         </div>
       </section>
