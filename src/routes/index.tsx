@@ -17,7 +17,7 @@ const services = [
   { no: "02", title: "Shopify stores", body: "Bespoke Shopify themes and storefronts engineered for small brands ready to sell." },
   { no: "03", title: "Hosting & domains", body: "Reliable hosting on a fast global edge. Custom domains, SSL, the lot — sorted." },
   { no: "04", title: "Email hosting", body: "Professional mailboxes on your own domain. you@yourbusiness.com — no Gmail in the footer." },
-  { no: "05", title: "iOS apps", body: "Native-feel apps designed, built and shipped to the Apple App Store under your name." },
+  { no: "05", title: "iOS & Android apps", body: "Native-feel apps designed, built and shipped to the Apple App Store and Google Play under your name." },
   { no: "06", title: "Ongoing care", body: "Updates, edits, performance tuning. A small monthly retainer keeps things moving." },
 ];
 
@@ -50,7 +50,7 @@ function Index() {
 
           <div className="mt-12 grid gap-10 md:grid-cols-12">
             <p className="md:col-span-6 md:col-start-1 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Vuult Web is a tiny studio designing custom websites, Shopify stores and iOS apps for independent businesses. No templates, no agency markup — just a website that actually looks like you.
+              Vuult Web is a tiny studio designing custom websites, Shopify stores and iOS & Android apps for independent businesses. No templates, no agency markup — just a website that actually looks like you.
             </p>
             <div className="md:col-span-5 md:col-start-8 flex flex-wrap items-end gap-4">
               <Link
@@ -75,7 +75,7 @@ function Index() {
             <div className="marquee flex w-max gap-12 whitespace-nowrap font-display text-3xl">
               {Array.from({ length: 2 }).map((_, i) => (
                 <div key={i} className="flex items-center gap-12">
-                  {["Websites", "Shopify", "Hosting", "Email", "iOS Apps", "Domains", "Maintenance"].map((w) => (
+                  {["Websites", "Shopify", "Hosting", "Email", "iOS Apps", "Android Apps", "Domains", "Maintenance"].map((w) => (
                     <span key={w + i} className="flex items-center gap-12">
                       <span>{w}</span>
                       <span className="text-signal">✦</span>

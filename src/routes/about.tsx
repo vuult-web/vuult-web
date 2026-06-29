@@ -41,7 +41,7 @@ function AboutPage() {
                 Most small businesses get two options when they need a website: a £100 template that looks like everyone else’s, or a £15,000 quote from an agency that treats them like a side-project.
               </p>
               <p>
-                We sit in the gap. Vuult Web builds custom, hand-coded websites, Shopify stores and iOS apps — the same quality you’d get from a large agency — at prices that actually make sense for an independent business.
+                We sit in the gap. Vuult Web builds custom, hand-coded websites, Shopify stores and iOS & Android apps — the same quality you’d get from a large agency — at prices that actually make sense for an independent business.
               </p>
               <p>
                 One small team. Direct contact with the people doing the work. No farmed-out development, no surprise invoices, no jargon.
