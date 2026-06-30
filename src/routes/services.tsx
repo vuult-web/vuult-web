@@ -121,14 +121,15 @@ function ServicesPage() {
       </section>
 
 
-      <section className="border-t border-border bg-card">
+      <section className="border-t border-border bg-bone text-ink">
         <div className="mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
           <div className="grid gap-12 md:grid-cols-12">
             <div className="md:col-span-7">
               <h2 className="font-display text-balance text-5xl leading-[0.95] lg:text-7xl">
-                Not sure what you need?<br /><span className="text-muted-foreground">Tell us the goal.</span>
+                Not sure what you need?<br /><span className="opacity-60">Tell us the goal.</span>
               </h2>
             </div>
+
             <div className="md:col-span-5 md:col-start-8 flex items-end">
               <Link
                 to="/contact"
