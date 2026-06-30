@@ -75,7 +75,7 @@ function AboutPage() {
           <div className="mt-10">
             <Link
               to="/contact"
-              className="inline-flex items-center bg-ink px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-bone transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center bg-ink px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-bone transition-all hover:-translate-y-0.5 hover:bg-signal hover:text-signal-foreground"
             >
               Start a project →
             </Link>
