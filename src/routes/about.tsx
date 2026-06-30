@@ -16,7 +16,7 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const stats: Array<{ k: React.ReactNode; v: string }> = [
+const stats: Array<{ k: ReactNode; v: string }> = [
   { k: <CountUp end={100} suffix="%" />, v: "Custom builds. Zero templates." },
   { k: <CountUp end={7} suffix=" days" />, v: "Typical website turnaround." },
   { k: "1", v: "Person you actually talk to." },
