@@ -58,7 +58,7 @@ function AboutPage() {
         <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10 lg:py-24">
           <ul className="grid gap-px bg-border sm:grid-cols-3">
             {stats.map((s) => (
-              <li key={s.k} className="bg-background p-10">
+              <li key={s.v} className="bg-background p-10">
                 <p className="font-display text-6xl text-signal">{s.k}</p>
                 <p className="mt-4 text-sm text-muted-foreground">{s.v}</p>
               </li>
