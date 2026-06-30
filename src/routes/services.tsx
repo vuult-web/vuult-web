@@ -133,7 +133,7 @@ function ServicesPage() {
             <div className="md:col-span-5 md:col-start-8 flex items-end">
               <Link
                 to="/contact"
-                className="inline-flex items-center bg-signal px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center bg-ink px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-bone transition-all hover:-translate-y-0.5 hover:bg-signal hover:text-signal-foreground"
               >
                 Start a conversation →
               </Link>
