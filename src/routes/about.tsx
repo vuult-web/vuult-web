@@ -1,4 +1,8 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { CountUp } from "@/components/CountUp";
+
+
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -12,11 +16,12 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const stats = [
-  { k: "100%", v: "Custom builds. Zero templates." },
-  { k: "7 days", v: "Typical website turnaround." },
+const stats: Array<{ k: ReactNode; v: string }> = [
+  { k: <CountUp end={100} suffix="%" />, v: "Custom builds. Zero templates." },
+  { k: <CountUp end={7} suffix=" days" />, v: "Typical website turnaround." },
   { k: "1", v: "Person you actually talk to." },
 ];
+
 
 function AboutPage() {
   return (
@@ -55,7 +60,7 @@ function AboutPage() {
         <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10 lg:py-24">
           <ul className="grid gap-px bg-border sm:grid-cols-3">
             {stats.map((s) => (
-              <li key={s.k} className="bg-background p-10">
+              <li key={s.v} className="bg-background p-10">
                 <p className="font-display text-6xl text-signal">{s.k}</p>
                 <p className="mt-4 text-sm text-muted-foreground">{s.v}</p>
               </li>
@@ -72,7 +77,7 @@ function AboutPage() {
           <div className="mt-10">
             <Link
               to="/contact"
-              className="inline-flex items-center bg-ink px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-bone transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center bg-ink px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-bone transition-all hover:-translate-y-0.5 hover:bg-signal hover:text-signal-foreground"
             >
               Start a project →
             </Link>

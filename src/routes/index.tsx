@@ -1,4 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import * as Accordion from "@radix-ui/react-accordion";
+import { Plus } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -101,18 +104,32 @@ function Index() {
             </Link>
           </div>
 
-          <div className="mt-16 grid border-t border-l border-border md:grid-cols-2 lg:grid-cols-3">
+          <Accordion.Root type="single" collapsible className="mt-16 border-t border-border">
             {services.map((s) => (
-              <article key={s.no} className="group relative border-r border-b border-border p-8 transition-colors hover:bg-card">
-                <div className="flex items-start justify-between">
-                  <span className="font-mono text-xs text-muted-foreground">{s.no}</span>
-                  <span className="text-signal opacity-0 transition-opacity group-hover:opacity-100">→</span>
-                </div>
-                <h3 className="font-display mt-12 text-3xl">{s.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              </article>
+              <Accordion.Item key={s.no} value={s.no} className="border-b border-border">
+                <Accordion.Header>
+                  <Accordion.Trigger className="group flex w-full cursor-pointer items-center justify-between gap-6 px-2 py-8 text-left transition-colors hover:bg-card data-[state=open]:bg-card">
+                    <div className="flex items-baseline gap-6">
+                      <span className="font-mono text-base text-muted-foreground">{s.no}</span>
+                      <h3 className="font-display text-3xl group-hover:text-signal group-data-[state=open]:text-signal lg:text-4xl">
+                        {s.title}
+                      </h3>
+                    </div>
+                    <Plus className="h-5 w-5 shrink-0 text-signal transition-transform duration-300 group-data-[state=open]:rotate-45" />
+                  </Accordion.Trigger>
+                </Accordion.Header>
+                <Accordion.Content className="overflow-hidden bg-card data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                  <div className="grid gap-4 px-2 pb-8 md:grid-cols-12">
+                    <div className="md:col-span-2" />
+                    <p className="md:col-span-10 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                      {s.body}
+                    </p>
+                  </div>
+                </Accordion.Content>
+              </Accordion.Item>
             ))}
-          </div>
+          </Accordion.Root>
+
         </div>
       </section>
 
@@ -149,7 +166,7 @@ function Index() {
           <div className="mt-12 flex flex-wrap items-center gap-6">
             <Link
               to="/contact"
-              className="inline-flex items-center bg-ink px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-bone transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center bg-ink px-8 py-5 font-mono text-xs uppercase tracking-[0.2em] text-bone transition-all hover:-translate-y-0.5 hover:bg-signal hover:text-signal-foreground"
             >
               Tell us about it →
             </Link>
