@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { CountUp } from "@/components/CountUp";
+
 
 export const Route = createFileRoute("/about")({
   head: () => ({
