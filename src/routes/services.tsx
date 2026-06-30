@@ -77,34 +77,49 @@ function ServicesPage() {
 
       <section>
         <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10 lg:py-24">
-          <ul className="divide-y divide-border border-y border-border">
+          <Accordion.Root type="single" collapsible className="border-y border-border">
             {detailed.map((s) => (
-              <li key={s.no} className="group grid gap-8 py-12 md:grid-cols-12 md:py-16">
-                <div className="md:col-span-2">
-                  <span className="font-mono text-xs text-muted-foreground">{s.no}</span>
-                </div>
-                <div className="md:col-span-5">
-                  <h2 className="font-display text-4xl leading-none transition-colors group-hover:text-signal lg:text-5xl">
-                    {s.title}
-                  </h2>
-                  <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-signal">{s.from}</p>
-                </div>
-                <div className="md:col-span-5">
-                  <p className="text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-                  <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    {s.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-sm text-foreground">
-                        <span className="mt-1 h-1.5 w-1.5 bg-signal" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
+              <Accordion.Item key={s.no} value={s.no} className="border-b border-border last:border-b-0">
+                <Accordion.Header>
+                  <Accordion.Trigger className="group flex w-full cursor-pointer items-center gap-6 py-8 text-left transition-colors hover:bg-card data-[state=open]:bg-card md:py-10">
+                    <div className="grid flex-1 gap-4 md:grid-cols-12 md:items-baseline">
+                      <div className="md:col-span-2">
+                        <span className="font-mono text-base text-muted-foreground">{s.no}</span>
+                      </div>
+                      <div className="md:col-span-7">
+                        <h2 className="font-display text-4xl leading-none transition-colors group-hover:text-signal group-data-[state=open]:text-signal lg:text-5xl">
+                          {s.title}
+                        </h2>
+                      </div>
+                      <div className="md:col-span-3">
+                        <p className="font-mono text-xs uppercase tracking-[0.2em] text-signal">{s.from}</p>
+                      </div>
+                    </div>
+                    <Plus className="h-5 w-5 shrink-0 text-signal transition-transform duration-300 group-data-[state=open]:rotate-45" />
+                  </Accordion.Trigger>
+                </Accordion.Header>
+                <Accordion.Content className="overflow-hidden bg-card data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                  <div className="grid gap-8 pb-10 md:grid-cols-12 md:pb-12">
+                    <div className="md:col-span-2" />
+                    <div className="md:col-span-10">
+                      <p className="text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                      <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                        {s.bullets.map((b) => (
+                          <li key={b} className="flex items-start gap-2 text-sm text-foreground">
+                            <span className="mt-1 h-1.5 w-1.5 bg-signal" />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </Accordion.Content>
+              </Accordion.Item>
             ))}
-          </ul>
+          </Accordion.Root>
         </div>
       </section>
+
 
       <section className="border-t border-border bg-card">
         <div className="mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
