@@ -16,12 +16,42 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { no: "01", title: "Custom websites", body: "Hand-built marketing sites that load fast, rank well and convert. No bloated templates." },
-  { no: "02", title: "Shopify stores", body: "Bespoke Shopify themes and storefronts engineered for small brands ready to sell." },
-  { no: "03", title: "Hosting & domains", body: "Reliable hosting on a fast global edge. Custom domains, SSL, the lot — sorted." },
-  { no: "04", title: "Email hosting", body: "Professional mailboxes on your own domain. you@yourbusiness.com — no Gmail in the footer." },
-  { no: "05", title: "iOS & Android apps", body: "Native-feel apps designed, built and shipped to the Apple App Store and Google Play under your name." },
-  { no: "06", title: "Ongoing care", body: "Updates, edits, performance tuning. A small monthly retainer keeps things moving." },
+  {
+    no: "01",
+    title: "Custom websites",
+    body: "Hand-built marketing and brochure sites, coded from scratch around your brand — never a stretched theme. We obsess over load times, Core Web Vitals and clean semantic markup, so Google likes you and so do your customers. Bring us a Figma file or a napkin sketch; we handle the rest, from copy polish to launch.",
+    points: ["Bespoke design & build", "SEO foundations baked in", "Editable CMS if you need one", "Analytics & consent set up"],
+  },
+  {
+    no: "02",
+    title: "Shopify stores",
+    body: "Custom Shopify themes and full storefronts engineered for independent brands that are ready to sell properly. Product pages that convert, checkouts that don't leak, and a backend you can actually run yourself without ringing a developer every Tuesday. Migrations from Wix, Squarespace or WooCommerce welcome.",
+    points: ["Custom theme development", "Product & collection design", "App & payment integrations", "Platform migrations"],
+  },
+  {
+    no: "03",
+    title: "Hosting & domains",
+    body: "Reliable hosting on a fast global edge network — your site served from the closest data centre to each visitor. Free SSL, daily backups, staging environments and a proper status page. We'll register your domain or move an existing one over without downtime, and configure the DNS so you never have to look at it.",
+    points: ["Global edge hosting", "Free SSL & daily backups", "Domain registration & transfer", "99.9% uptime, real support"],
+  },
+  {
+    no: "04",
+    title: "Email hosting",
+    body: "Professional mailboxes on your own domain — you@yourbusiness.com instead of yourbusiness.gmail@gmail.com. Works with Apple Mail, Outlook, Gmail and any phone. Includes shared aliases (hello@, sales@, accounts@), calendar and contacts sync, and generous storage. One mailbox is free with any care plan.",
+    points: ["Custom-domain mailboxes", "Calendar & contacts sync", "Shared aliases & forwarding", "1 mailbox free with care plans"],
+  },
+  {
+    no: "05",
+    title: "iOS & Android apps",
+    body: "Native-feel apps for iPhone, iPad and Android — designed, built, submitted and maintained. We handle the Apple App Store and Google Play listings, screenshots, review process and updates, all under your developer account so you own everything. Push notifications, in-app purchases and analytics included as standard.",
+    points: ["UI/UX design & prototyping", "Native iOS & Android builds", "App Store & Google Play submission", "Push notifications & analytics"],
+  },
+  {
+    no: "06",
+    title: "Ongoing care",
+    body: "A small monthly retainer that keeps everything humming — content edits, plugin and framework updates, security patches, performance tuning and a proper monthly report. Also covers the inevitable 'can you just change this one thing' requests without a new invoice landing in your inbox each time.",
+    points: ["Monthly content edits", "Security & framework updates", "Performance reports", "1 free mailbox included"],
+  },
 ];
 
 const principles = [
@@ -119,11 +149,21 @@ function Index() {
                   </Accordion.Trigger>
                 </Accordion.Header>
                 <Accordion.Content className="overflow-hidden bg-card data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                  <div className="grid gap-4 px-2 pb-8 md:grid-cols-12">
+                  <div className="grid gap-6 px-2 pb-10 md:grid-cols-12">
                     <div className="md:col-span-2" />
-                    <p className="md:col-span-10 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-                      {s.body}
-                    </p>
+                    <div className="md:col-span-10 max-w-3xl">
+                      <p className="text-base leading-relaxed text-muted-foreground">
+                        {s.body}
+                      </p>
+                      <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                        {s.points.map((p) => (
+                          <li key={p} className="flex items-start gap-3 text-sm text-foreground">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-signal" />
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </Accordion.Content>
               </Accordion.Item>
