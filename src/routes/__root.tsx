@@ -184,6 +184,15 @@ function SiteHeader() {
                 {n.label}
               </Link>
             ))}
+            <a
+              href="https://portfolio.vuultweb.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Portfolio ↗
+            </a>
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
