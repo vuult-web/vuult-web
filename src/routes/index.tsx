@@ -149,11 +149,21 @@ function Index() {
                   </Accordion.Trigger>
                 </Accordion.Header>
                 <Accordion.Content className="overflow-hidden bg-card data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                  <div className="grid gap-4 px-2 pb-8 md:grid-cols-12">
+                  <div className="grid gap-6 px-2 pb-10 md:grid-cols-12">
                     <div className="md:col-span-2" />
-                    <p className="md:col-span-10 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-                      {s.body}
-                    </p>
+                    <div className="md:col-span-10 max-w-3xl">
+                      <p className="text-base leading-relaxed text-muted-foreground">
+                        {s.body}
+                      </p>
+                      <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                        {s.points.map((p) => (
+                          <li key={p} className="flex items-start gap-3 text-sm text-foreground">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-signal" />
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </Accordion.Content>
               </Accordion.Item>
