@@ -14,7 +14,6 @@ export const Route = createFileRoute("/contact")({
 });
 
 const services = ["Custom website", "Shopify store", "Hosting & domains", "Email hosting", "iOS app", "Android app", "Something else"];
-const budgets = ["Under £1k", "£1k – £3k", "£3k – £7k", "£7k+", "Not sure yet"];
 
 const CONTACT_EMAIL = "hello@vuultweb.com";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqevljlb";
@@ -93,7 +92,6 @@ function ContactPage() {
                 <Field label="Business" name="business" placeholder="What's it called?" />
 
                 <SelectField label="Service" name="service" options={services} />
-                <SelectField label="Budget" name="budget" options={budgets} />
 
                 <div className="bg-background p-6">
                   <label className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground" htmlFor="message">
