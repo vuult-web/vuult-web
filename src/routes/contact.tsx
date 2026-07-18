@@ -14,7 +14,6 @@ export const Route = createFileRoute("/contact")({
 });
 
 const services = ["Custom website", "Shopify store", "Hosting & domains", "Email hosting", "iOS app", "Android app", "Something else"];
-const budgets = ["Under £1k", "£1k – £3k", "£3k – £7k", "£7k+", "Not sure yet"];
 
 const CONTACT_EMAIL = "hello@vuultweb.com";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqevljlb";
