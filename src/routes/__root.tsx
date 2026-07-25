@@ -296,6 +296,7 @@ function RootComponent() {
           <Outlet />
         </main>
         <SiteFooter />
+        <WelcomePopup />
       </div>
     </QueryClientProvider>
   );
