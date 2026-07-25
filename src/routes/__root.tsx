@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 
 const LOGO_URL = "/vuult-logo-white.png";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { WelcomePopup } from "../components/WelcomePopup";
 
 function NotFoundComponent() {
   return (
