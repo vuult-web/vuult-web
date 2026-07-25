@@ -124,10 +124,52 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
+function HamburgerIcon({ open }: { open: boolean }) {
+  return (
+    <span className="relative flex h-6 w-6 flex-col items-center justify-center gap-1.5">
+      <span
+        className={
+          "block h-0.5 w-6 bg-current transition-transform duration-300 ease-out " +
+          (open ? "translate-y-2 rotate-45" : "translate-y-0 rotate-0")
+        }
+      />
+      <span
+        className={
+          "block h-0.5 w-6 bg-current transition-opacity duration-300 ease-out " +
+          (open ? "opacity-0" : "opacity-100")
+        }
+      />
+      <span
+        className={
+          "block h-0.5 w-6 bg-current transition-transform duration-300 ease-out " +
+          (open ? "-translate-y-2 -rotate-45" : "translate-y-0 rotate-0")
+        }
+      />
+    </span>
+  );
+}
+
 function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleOutside = (event: MouseEvent | TouchEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutside);
+    document.addEventListener("touchstart", handleOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleOutside);
+      document.removeEventListener("touchstart", handleOutside);
+    };
+  }, [open]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
+    <header ref={menuRef} className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 lg:px-10">
         <Link to="/" className="flex items-center gap-3" aria-label="Vuult Web home" onClick={() => setOpen(false)}>
           <img src={LOGO_URL} alt="Vuult Web" className="h-5 w-auto" />
@@ -166,43 +208,46 @@ function SiteHeader() {
           onClick={() => setOpen((v) => !v)}
           className="inline-flex items-center justify-center p-2 text-foreground md:hidden"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <HamburgerIcon open={open} />
         </button>
       </div>
-      {open && (
-        <div className="border-t border-border bg-background md:hidden">
-          <nav className="mx-auto flex max-w-[1400px] flex-col gap-1 px-6 py-4">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
-                activeProps={{ className: "py-3 font-mono text-xs uppercase tracking-[0.2em] text-foreground" }}
-                activeOptions={{ exact: true }}
-              >
-                {n.label}
-              </Link>
-            ))}
-            <a
-              href="https://portfolio.vuultweb.com"
-              target="_blank"
-              rel="noopener noreferrer"
+      <div
+        className={
+          "border-t border-border bg-background md:hidden transition-all duration-300 ease-out overflow-hidden " +
+          (open ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2 pointer-events-none")
+        }
+      >
+        <nav className="mx-auto flex max-w-[1400px] flex-col gap-1 px-6 py-4">
+          {nav.map((n) => (
+            <Link
+              key={n.to}
+              to={n.to}
               onClick={() => setOpen(false)}
               className="py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+              activeProps={{ className: "py-3 font-mono text-xs uppercase tracking-[0.2em] text-foreground" }}
+              activeOptions={{ exact: true }}
             >
-              Portfolio ↗
-            </a>
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center bg-signal px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground"
-            >
-              Start a project →
+              {n.label}
             </Link>
-          </nav>
-        </div>
-      )}
+          ))}
+          <a
+            href="https://portfolio.vuultweb.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Portfolio ↗
+          </a>
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            className="mt-2 inline-flex items-center justify-center bg-signal px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground"
+          >
+            Start a project →
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 }
