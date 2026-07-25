@@ -93,6 +93,7 @@ function ServicesPage() {
                       </div>
                       <div className="md:col-span-3">
                         <p className="font-mono text-xs uppercase tracking-[0.2em] text-signal">{s.from}</p>
+                        <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground/70">Prices from {s.from}</p>
                       </div>
                     </div>
                     <Plus className="h-5 w-5 shrink-0 text-signal transition-transform duration-300 group-data-[state=open]:rotate-45" />
