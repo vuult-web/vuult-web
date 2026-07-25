@@ -196,6 +196,39 @@ function Index() {
         </div>
       </section>
 
+      {/* FREE DESIGN */}
+      <section className="border-b border-border bg-card">
+        <div className="mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
+          <div className="grid gap-12 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">§ 03 — No-risk offer</p>
+              <h2 className="font-display mt-4 text-5xl lg:text-6xl">
+                Free design.<br /><span className="text-signal">Pay if you like it.</span>
+              </h2>
+            </div>
+            <div className="md:col-span-6 md:col-start-7">
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                Tell us about your business and we'll design your website — properly, with placeholder copy and a real working prototype — before you pay a penny. If you love it, we launch it. If you don't, you walk away. No deposit, no contract, no awkward chase-up.
+              </p>
+              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                {["No deposit up front", "Real working prototype", "Zero obligation to buy", "Only pay once you love it"].map((p) => (
+                  <li key={p} className="flex items-start gap-3 text-sm text-foreground">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-signal" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/contact"
+                className="mt-10 inline-flex items-center bg-signal px-6 py-4 font-mono text-xs uppercase tracking-[0.2em] text-signal-foreground transition-transform hover:-translate-y-0.5"
+              >
+                Claim your free design →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative overflow-hidden bg-bone text-ink">
         <div className="mx-auto max-w-[1400px] px-6 py-24 lg:px-10 lg:py-32">
